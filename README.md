@@ -1,4 +1,4 @@
-# istema de Control Operativo - MotoTaxis CDMX
+# Sistema de Control Operativo - MotoTaxis CDMX
 
 Este proyecto es una plataforma Full-Stack automatizada mediante contenedores para la gestión de unidades, ramales, personal operativo y bitácora de chequeo en tiempo real.
 
