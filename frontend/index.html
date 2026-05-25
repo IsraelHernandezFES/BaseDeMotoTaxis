@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>MOTO-RÓTULOS | Control de la Base</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Bricolage+Grotesque:wght@700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-tertiary-container": "#fdffff",
+                        "inverse-primary": "#ffb0c8",
+                        "on-primary-fixed-variant": "#8e004b",
+                        "outline-variant": "#e2bdc6",
+                        "tertiary": "#006771",
+                        "on-primary-container": "#fffeff",
+                        "secondary-container": "#fecb00",
+                        "surface-tint": "#b90064",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface-variant": "#5a3f47",
+                        "tertiary-fixed": "#9ff0fb",
+                        "on-secondary-container": "#6e5700",
+                        "on-tertiary-fixed": "#001f23",
+                        "error": "#ba1a1a",
+                        "on-background": "#1b1c1c",
+                        "surface-variant": "#e5e2e1",
+                        "outline": "#8e6f77",
+                        "surface-container-high": "#eae7e7",
+                        "primary": "#b70062",
+                        "surface": "#fcf9f8",
+                        "primary-container": "#e4007c",
+                        "background": "#fcf9f8",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#3e001e",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#ffb0c8",
+                        "on-secondary-fixed": "#241a00",
+                        "tertiary-container": "#29818b",
+                        "on-secondary-fixed-variant": "#584400",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffe08b",
+                        "surface-container": "#f0eded",
+                        "tertiary-fixed-dim": "#82d3de",
+                        "surface-bright": "#fcf9f8",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffd9e2",
+                        "secondary": "#745b00",
+                        "surface-container-low": "#f6f3f2",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-fixed-variant": "#004f56",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "on-surface": "#1b1c1c",
+                        "secondary-fixed-dim": "#f1c100",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "gutter": "16px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Archivo Narrow"],
+                        "body-md": ["Archivo Narrow"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-sm": ["Archivo Narrow"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "body-lg": ["Archivo Narrow"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["72px", { "lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["36px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["20px", { "lineHeight": "28px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .texture-bg {
+            background-image: radial-gradient(#8e6f77 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+        }
+
+        .rotulo-border {
+            border: 4px solid #1b1c1c;
+            box-shadow: 6px 6px 0px 0px rgba(27, 28, 28, 1);
+        }
+
+        .sticker-btn {
+            border: 3px solid #1b1c1c;
+            box-shadow: 5px 5px 0px 0px rgba(27, 28, 28, 1);
+            transition: all 0.1s ease;
+        }
+
+        .sticker-btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px 0px rgba(27, 28, 28, 1);
+        }
+
+        .input-slat {
+            border-bottom: 4px solid #1b1c1c;
+            background: transparent;
+        }
+
+        .decorative-sparkle {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface min-h-screen overflow-x-hidden font-body-md">
+
+    <main id="auth-view" class="flex min-h-screen w-full flex-col md:flex-row">
+        <section class="relative w-full md:w-1/2 h-64 md:h-screen overflow-hidden">
+            <img alt="Vibrant mototaxi on a street in Mexico City"
+                class="w-full h-full object-cover grayscale-[20%] contrast-[1.1]"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlMKzRAz_7wh-0U8jk7AAkG1Iap7Fo4iND-jSNlKfmByH4hzS2_baF3gKSfOJkILlIm906dNK3ko0FaHNJUVyC1HwaIrcc5vDr2GyDvCqQzPfheiYEEsqiGcIjKfmzSFPVt-hRWbciur6ajCQ1w1OsP_5hyna-JGhKZkNiOiVT2vxjnPlDWuRWzjHv-odh3QCSFN1-U16VdiDmbYgCtxc_l3qwYwGW8lUxlF7vJGWm4ijXN8m_NHSfV5u5apiRQ-BDwLx_Vi-j6Q">
+            <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+        </section>
+
+        <section
+            class="relative w-full md:w-1/2 flex flex-col items-center justify-center bg-surface-container-low p-margin-mobile md:p-stack-lg">
+            <div class="absolute inset-0 texture-bg pointer-events-none"></div>
+
+            <div class="relative z-10 w-full max-w-md">
+                <div class="flex justify-center mb-stack-md">
+                    <img alt="Moto Taxi CDMX Logo" class="h-40 md:h-56 transform transition-transform hover:scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvnovL9GZ86jsOkIubI61lRnUeOrD5wAVmgO0u1iCUyFl8U1-3M-RZ9q-QXlYXro2bGkag5OpjuDK7Hr3cEq-8ddF0JbpRyDkGN4DHWtXwqSRrrj4hIUuypNLKtTdN-38HuXeDK4ijdLD9-hSchiec2gDgnA4Dl6p5-65DdOp2Hn0p0TFI-1h8AmbS71-DOCxxRvGefJ1DvwibTG4WLaR15PrCx2xt7uPIq8YtBlBQNYcUWZhejKAIKfzenWENwq9K9wXWWHEuBw">
+                </div>
+
+                <div class="text-center mb-stack-lg space-y-2">
+                    <h1 class="font-headline-lg text-headline-lg text-on-background relative inline-block"
+                        id="auth-headline">
+                        ¡Súbete a mi moto!
+                        <span
+                            class="material-symbols-outlined decorative-sparkle -top-6 -right-6 text-secondary-container">auto_awesome</span>
+                        <span
+                            class="material-symbols-outlined decorative-sparkle -bottom-2 -left-8 text-primary">stars</span>
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant px-4" id="form-description">
+                        El barrio te necesita. Regístrate o inicia sesión para empezar a chambear.
+                    </p>
+                </div>
+
+                <div id="alert-box"
+                    class="mb-4 p-stack-sm text-center font-label-lg uppercase border-2 border-dashed hidden"></div>
+
+                <form class="space-y-stack-md bg-surface p-stack-md rotulo-border" id="auth-form">
+                    <div class="space-y-unit">
+                        <label
+                            class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                            for="email">
+                            <span class="material-symbols-outlined text-[18px]">person</span>
+                            Correo Electrónico
+                        </label>
+                        <input
+                            class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors placeholder:opacity-30"
+                            id="email" placeholder="tu@barrio.com" type="email" required>
+                    </div>
+
+                    <div class="space-y-unit">
+                        <label
+                            class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                            for="password">
+                            <span class="material-symbols-outlined text-[18px]">lock</span>
+                            Contraseña
+                        </label>
+                        <input
+                            class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors placeholder:opacity-30"
+                            id="password" placeholder="••••••••" type="password" required>
+                    </div>
+
+                    <button
+                        class="w-full bg-primary-container text-on-primary-container font-headline-md text-headline-md py-stack-md uppercase tracking-widest sticker-btn mt-stack-md"
+                        type="submit" id="submit-btn">
+                        ¡Vámonos!
+                    </button>
+
+                    <div class="pt-stack-md text-center">
+                        <button
+                            class="font-label-lg text-label-lg text-primary underline hover:text-on-primary-fixed-variant transition-colors"
+                            id="form-toggle" type="button">
+                            No tengo cuenta
+                        </button>
+                    </div>
+                </form>
+
+                <footer class="mt-stack-lg text-center opacity-60">
+                    <p class="font-label-sm text-label-sm uppercase tracking-tighter">
+                        © 2026 MOTOTAXI CDMX - HECHO POR ISRAEL HERNANDEZ
+                    </p>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <main id="admin-menu-view"
+        class="min-h-screen w-full bg-surface-container-low hidden relative p-6 flex flex-col justify-between">
+        <div class="absolute inset-0 texture-bg pointer-events-none"></div>
+
+        <header
+            class="relative z-10 w-full max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center border-b-4 border-on-background pb-4 mb-8">
+            <div class="flex items-center gap-4">
+                <span
+                    class="material-symbols-outlined text-[48px] text-secondary-container bg-on-background p-2 rounded-lg">local_taxi</span>
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-on-background uppercase tracking-tight">Base
+                        Central MotoTaxis</h2>
+                    <p class="font-label-lg text-label-lg uppercase text-primary font-bold">Panel del Patrón
+                        (Administrador)</p>
+                </div>
+            </div>
+            <button id="logout-btn"
+                class="mt-4 sm:mt-0 bg-error text-white font-label-lg text-label-lg uppercase py-2 px-4 sticker-btn flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">logout</span> Cerrar Sesión
+            </button>
+        </header>
+
+        <section class="relative z-10 w-full max-w-6xl mx-auto flex flex-col space-y-stack-md my-auto">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <button
+                    class="bg-secondary-container text-on-background p-6 flex flex-col items-center justify-center text-center rotulo-border h-48 hover:scale-[1.02] transition-transform group"
+                    id="btn-unidades">
+                    <span
+                        class="material-symbols-outlined text-[48px] mb-2 group-hover:animate-bounce">motorcycle</span>
+                    <span class="font-headline-md text-headline-md uppercase tracking-wide">Unidades</span>
+                    <p class="font-label-sm text-label-sm uppercase opacity-70 mt-1">Gestionar Motos y Placas</p>
+                </button>
+                <button
+                    class="bg-tertiary-fixed text-on-tertiary-fixed p-6 flex flex-col items-center justify-center text-center rotulo-border h-48 hover:scale-[1.02] transition-transform group"
+                    id="btn-rutas">
+                    <span class="material-symbols-outlined text-[48px] mb-2 group-hover:animate-bounce">map</span>
+                    <span class="font-headline-md text-headline-md uppercase tracking-wide">Rutas</span>
+                    <p class="font-label-sm text-label-sm uppercase opacity-70 mt-1">Zonas y Ramales</p>
+                </button>
+                <button
+                    class="bg-primary-fixed-dim text-on-primary-fixed p-6 flex flex-col items-center justify-center text-center rotulo-border h-48 hover:scale-[1.02] transition-transform group"
+                    id="btn-operadores">
+                    <span class="material-symbols-outlined text-[48px] mb-2 group-hover:animate-bounce">groups</span>
+                    <span class="font-headline-md text-headline-md uppercase tracking-wide">Operadores</span>
+                    <p class="font-label-sm text-label-sm uppercase opacity-70 mt-1">Control de Choferes</p>
+                </button>
+                <button
+                    class="bg-surface text-on-background p-6 flex flex-col items-center justify-center text-center rotulo-border h-48 hover:scale-[1.02] transition-transform group border-4"
+                    id="btn-entradas-salidas">
+                    <span
+                        class="material-symbols-outlined text-[48px] mb-2 text-primary group-hover:animate-bounce">swap_vertical_circle</span>
+                    <span class="font-headline-md text-headline-md uppercase tracking-wide">Entradas / Salidas</span>
+                    <p class="font-label-sm text-label-sm uppercase opacity-70 mt-1">Bitácora de Chequeo</p>
+                </button>
+            </div>
+
+            <div id="vista-tabla-unidades" class="bg-surface p-stack-md rotulo-border w-full hidden space-y-stack-sm">
+                <div class="flex justify-between items-center border-b-4 border-on-background pb-2">
+                    <h3 class="font-headline-md text-headline-md uppercase">Motos Registradas en la Base</h3>
+                    <button id="btn-nueva-unidad"
+                        class="bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase py-2 px-4 sticker-btn flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">add_circle</span> Agregar Nueva Moto
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="border-b-4 border-on-background bg-surface-container-highest font-label-lg text-label-lg uppercase">
+                                <th class="p-3">Económico</th>
+                                <th class="p-3">Placas</th>
+                                <th class="p-3">Modelo / Marca</th>
+                                <th class="p-3 text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-unidades-body"
+                            class="font-body-lg text-body-lg divide-y-2 divide-on-background">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div id="vista-tabla-rutas" class="bg-surface p-stack-md rotulo-border w-full hidden space-y-stack-sm">
+                <div class="flex justify-between items-center border-b-4 border-on-background pb-2">
+                    <h3 class="font-headline-md text-headline-md uppercase">Ramales y Zonas de la Base</h3>
+                    <button id="btn-nueva-ruta"
+                        class="bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase py-2 px-4 sticker-btn flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">add_circle</span> Agregar Nuevo Ramal
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="border-b-4 border-on-background bg-surface-container-highest font-label-lg text-label-lg uppercase">
+                                <th class="p-3">Nombre del Ramal</th>
+                                <th class="p-3">Origen</th>
+                                <th class="p-3">Destino</th>
+                                <th class="p-3">Tarifa</th>
+                                <th class="p-3 text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-rutas-body" class="font-body-lg text-body-lg divide-y-2 divide-on-background">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div id="vista-tabla-operadores" class="bg-surface p-stack-md rotulo-border w-full hidden space-y-stack-sm">
+                <div class="flex justify-between items-center border-b-4 border-on-background pb-2">
+                    <h3 class="font-headline-md text-headline-md uppercase">Operadores Activos (La Banda)</h3>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="border-b-4 border-on-background bg-surface-container-highest font-label-lg text-label-lg uppercase">
+                                <th class="p-3">ID Sistema</th>
+                                <th class="p-3">Correo del Conductor</th>
+                                <th class="p-3">Fecha de Alta</th>
+                                <th class="p-3 text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-operadores-body"
+                            class="font-body-lg text-body-lg divide-y-2 divide-on-background">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="vista-tabla-bitacora" class="bg-surface p-stack-md rotulo-border w-full hidden space-y-stack-sm">
+                <div class="flex justify-between items-center border-b-4 border-on-background pb-2">
+                    <h3 class="font-headline-md text-headline-md uppercase">Bitácora de Chequeo en Vivo</h3>
+                    <button id="btn-nuevo-chequeo"
+                        class="bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase py-2 px-4 sticker-btn flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">assignment_turned_in</span> Registrar
+                        Entrada/Salida
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="border-b-4 border-on-background bg-surface-container-highest font-label-lg text-label-lg uppercase">
+                                <th class="p-3">Fecha y Hora</th>
+                                <th class="p-3">Movimiento</th>
+                                <th class="p-3">Operador</th>
+                                <th class="p-3">Unidad</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-bitacora-body"
+                            class="font-body-lg text-body-lg divide-y-2 divide-on-background">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer class="relative z-10 w-full text-center pt-8 border-t-2 border-on-background opacity-60">
+            <p class="font-label-sm text-label-sm uppercase tracking-tighter">
+                SISTEMA DE CONTROL DE MOTOTAXIS v2.0 — HECHO POR ISRAEL HERNANDEZ
+            </p>
+        </footer>
+    </main>
+
+    <main id="operator-menu-view"
+        class="min-h-screen w-full bg-surface-container-low hidden relative p-6 flex flex-col justify-between">
+        <div class="absolute inset-0 texture-bg pointer-events-none"></div>
+
+        <header
+            class="relative z-10 w-full max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center border-b-4 border-on-background pb-4 mb-8">
+            <div class="flex items-center gap-4">
+                <span
+                    class="material-symbols-outlined text-[48px] text-primary bg-on-background p-2 rounded-lg">sports_motorsports</span>
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-on-background uppercase tracking-tight">Portal de
+                        Operadores</h2>
+                    <p id="OPERATOR_WELCOME" class="font-label-lg text-label-lg uppercase text-secondary font-bold">
+                        Cargando Chofer...</p>
+                </div>
+            </div>
+            <div class="flex gap-3 mt-4 sm:mt-0">
+                <button id="btn-perfil-op"
+                    class="bg-secondary-container text-on-background font-label-lg text-label-lg uppercase py-2 px-4 sticker-btn flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">account_circle</span> Mi Perfil
+                </button>
+                <button id="logout-op-btn"
+                    class="bg-error text-white font-label-lg text-label-lg uppercase py-2 px-4 sticker-btn flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">logout</span> Salir
+                </button>
+            </div>
+        </header>
+
+        <section class="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 my-auto">
+            <button
+                class="bg-surface text-on-background p-6 flex flex-col items-center justify-center text-center rotulo-border h-40 hover:scale-[1.02] transition-transform group border-4"
+                id="btn-op-unidades">
+                <span
+                    class="material-symbols-outlined text-[42px] mb-2 text-primary group-hover:animate-bounce">motorcycle</span>
+                <span class="font-headline-md text-headline-md uppercase tracking-wide">Ver Motos</span>
+                <p class="font-label-sm text-label-sm uppercase opacity-70 mt-1">Lista de Unidades de la Base</p>
+            </button>
+
+            <button
+                class="bg-surface text-on-background p-6 flex flex-col items-center justify-center text-center rotulo-border h-40 hover:scale-[1.02] transition-transform group border-4"
+                id="btn-op-rutas">
+                <span
+                    class="material-symbols-outlined text-[42px] mb-2 text-primary group-hover:animate-bounce">map</span>
+                <span class="font-headline-md text-headline-md uppercase tracking-wide">Ver Ramales</span>
+                <p class="font-label-sm text-label-sm uppercase opacity-70 mt-1">Rutas y Tarifas Vigentes</p>
+            </button>
+
+            <button
+                class="bg-primary-container text-on-primary-container p-6 flex flex-col items-center justify-center text-center rotulo-border h-40 hover:scale-[1.02] transition-transform group"
+                id="btn-op-checador">
+                <span
+                    class="material-symbols-outlined text-[42px] mb-2 group-hover:animate-bounce">history_toggle_off</span>
+                <span class="font-headline-md text-headline-md uppercase tracking-wide">Mi Checador</span>
+                <p class="font-label-sm text-label-sm uppercase opacity-70 mt-1">Registrar mi Entrada o Salida</p>
+            </button>
+        </section>
+
+        <section class="relative z-10 w-full max-w-6xl mx-auto mt-6">
+            <div id="vista-tabla-op" class="bg-surface p-stack-md rotulo-border w-full hidden space-y-stack-sm">
+                <h3 id="tabla-op-titulo"
+                    class="font-headline-md text-headline-md uppercase border-b-4 border-on-background pb-2">Datos de la
+                    Base</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead id="tabla-op-head"></thead>
+                        <tbody id="tabla-op-body" class="font-body-lg text-body-lg divide-y-2 divide-on-background">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer class="relative z-10 w-full text-center pt-8 border-t-2 border-on-background opacity-60">
+            <p class="font-label-sm text-label-sm uppercase tracking-tighter">Portal del Operador — Conduce con Cuidado
+            </p>
+        </footer>
+    </main>
+
+    <div id="modal-unidad"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden p-margin-mobile">
+        <div class="bg-surface w-full max-w-md rotulo-border p-stack-md relative flex flex-col space-y-stack-md">
+
+            <div class="flex justify-between items-center border-b-4 border-on-background pb-2">
+                <h3 id="modal-title"
+                    class="font-headline-md text-headline-md text-on-background uppercase tracking-tight">Agregar Unidad
+                </h3>
+                <button id="close-modal-btn"
+                    class="material-symbols-outlined text-error font-bold text-[28px] hover:scale-110 transition-transform">close</button>
+            </div>
+
+            <form id="unidad-form" class="space-y-stack-sm">
+                <input type="hidden" id="unidad-id">
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                        for="num-unidad">
+                        <span class="material-symbols-outlined text-[18px]">pin</span> Número de Económico / Unidad
+                    </label>
+                    <input
+                        class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors placeholder:opacity-30"
+                        id="num-unidad" placeholder="Ej. 042" type="text" required>
+                </div>
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                        for="placas-unidad">
+                        <span class="material-symbols-outlined text-[18px]">badge</span> Placas
+                    </label>
+                    <input
+                        class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors placeholder:opacity-30"
+                        id="placas-unidad" placeholder="Ej. 42-MTA-6" type="text" required>
+                </div>
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                        for="modelo-unidad">
+                        <span class="material-symbols-outlined text-[18px]">motorcycle</span> Modelo / Marca
+                    </label>
+                    <input
+                        class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors placeholder:opacity-30"
+                        id="modelo-unidad" placeholder="Ej. Bajaj Torito 2024" type="text" required>
+                </div>
+
+                <div class="flex flex-col gap-3 pt-4">
+                    <button type="submit" id="save-unidad-btn"
+                        class="w-full bg-secondary-container text-on-background font-headline-md text-headline-md py-stack-sm uppercase tracking-widest sticker-btn">
+                        Guardar Unidad
+                    </button>
+
+                    <button type="button" id="delete-unidad-btn"
+                        class="w-full bg-error text-white font-label-lg text-label-lg py-stack-sm uppercase tracking-wider sticker-btn hidden">
+                        Eliminar Unidad de la Base
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="modal-ruta"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden p-margin-mobile">
+        <div class="bg-surface w-full max-w-md rotulo-border p-stack-md relative flex flex-col space-y-stack-md">
+
+            <div class="flex justify-between items-center border-b-4 border-on-background pb-2">
+                <h3 id="modal-ruta-title"
+                    class="font-headline-md text-headline-md text-on-background uppercase tracking-tight">Agregar Nuevo
+                    Ramal</h3>
+                <button id="close-modal-ruta-btn"
+                    class="material-symbols-outlined text-error font-bold text-[28px] hover:scale-110 transition-transform">close</button>
+            </div>
+
+            <form id="ruta-form" class="space-y-stack-sm">
+                <input type="hidden" id="ruta-id">
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                        for="nombre-ruta">
+                        <span class="material-symbols-outlined text-[18px]">edit_road</span> Nombre del Ramal
+                    </label>
+                    <input
+                        class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors placeholder:opacity-30"
+                        id="nombre-ruta" placeholder="Ej. Ramal Pantitlán-Metro" type="text" required>
+                </div>
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                        for="origen-ruta">
+                        <span class="material-symbols-outlined text-[18px]">location_on</span> Punto de Origen
+                    </label>
+                    <input
+                        class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors placeholder:opacity-30"
+                        id="origen-ruta" placeholder="Ej. Base Central Metro" type="text" required>
+                </div>
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                        for="destino-ruta">
+                        <span class="material-symbols-outlined text-[18px]">sports_score</span> Punto de Destino
+                    </label>
+                    <input
+                        class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors placeholder:opacity-30"
+                        id="destino-ruta" placeholder="Ej. Colonia Ampliación Sol" type="text" required>
+                </div>
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                        for="tarifa-ruta">
+                        <span class="material-symbols-outlined text-[18px]">payments</span> Tarifa ($)
+                    </label>
+                    <input
+                        class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors"
+                        id="tarifa-ruta" type="number" step="0.50" value="15.00" required>
+                </div>
+
+                <div class="flex flex-col gap-3 pt-4">
+                    <button type="submit" id="save-ruta-btn"
+                        class="w-full bg-secondary-container text-on-background font-headline-md text-headline-md py-stack-sm uppercase tracking-widest sticker-btn">
+                        Guardar Ramal
+                    </button>
+                    <button type="button" id="delete-ruta-btn"
+                        class="w-full bg-error text-white font-label-lg text-label-lg py-stack-sm uppercase tracking-wider sticker-btn hidden">
+                        Eliminar Ramal de la Base
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-operador"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden p-margin-mobile">
+        <div class="bg-surface w-full max-w-md rotulo-border p-stack-md relative flex flex-col space-y-stack-md">
+
+            <div class="flex justify-between items-center border-b-4 border-on-background pb-2">
+                <h3 class="font-headline-md text-headline-md text-on-background uppercase tracking-tight">Modificar
+                    Conductor</h3>
+                <button id="close-modal-operador-btn"
+                    class="material-symbols-outlined text-error font-bold text-[28px] hover:scale-110 transition-transform">close</button>
+            </div>
+
+            <form id="operador-form" class="space-y-stack-sm">
+                <input type="hidden" id="operador-id">
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant flex items-center gap-2"
+                        for="email-operador">
+                        <span class="material-symbols-outlined text-[18px]">mail</span> Correo Electrónico
+                    </label>
+                    <input
+                        class="w-full font-body-lg text-body-lg px-unit py-stack-sm input-slat focus:outline-none focus:border-primary transition-colors"
+                        id="email-operador" type="email" required>
+                </div>
+
+                <div class="flex flex-col gap-3 pt-4">
+                    <button type="submit"
+                        class="w-full bg-secondary-container text-on-background font-headline-md text-headline-md py-stack-sm uppercase tracking-widest sticker-btn">
+                        Actualizar Correo
+                    </button>
+                    <button type="button" id="delete-operador-btn"
+                        class="w-full bg-error text-white font-label-lg text-label-lg py-stack-sm uppercase tracking-wider sticker-btn">
+                        Dar de Baja de la Base
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-chequeo"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden p-margin-mobile">
+        <div class="bg-surface w-full max-w-md rotulo-border p-stack-md relative flex flex-col space-y-stack-md">
+
+            <div class="flex justify-between items-center border-b-4 border-on-background pb-2">
+                <h3 class="font-headline-md text-headline-md text-on-background uppercase tracking-tight">Dar Entrada /
+                    Salida</h3>
+                <button id="close-modal-chequeo-btn"
+                    class="material-symbols-outlined text-error font-bold text-[28px] hover:scale-110 transition-transform">close</button>
+            </div>
+
+            <form id="chequeo-form" class="space-y-stack-sm">
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant"
+                        for="select-operador">Seleccionar Chofer</label>
+                    <select id="select-operador"
+                        class="w-full font-body-lg p-2 border-2 border-on-background focus:outline-none"
+                        required></select>
+                </div>
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant"
+                        for="select-moto">Seleccionar Unidad</label>
+                    <select id="select-moto"
+                        class="w-full font-body-lg p-2 border-2 border-on-background focus:outline-none"
+                        required></select>
+                </div>
+
+                <div class="space-y-unit">
+                    <label class="font-label-lg text-label-lg uppercase text-on-surface-variant"
+                        for="select-tipo">Movimiento</label>
+                    <select id="select-tipo"
+                        class="w-full font-body-lg p-2 border-2 border-on-background focus:outline-none" required>
+                        <option value="SALIDA">SALIDA (A chambear)</option>
+                        <option value="ENTRADA">ENTRADA (Reporta regreso)</option>
+                    </select>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-secondary-container text-on-background font-headline-md text-headline-md py-stack-sm uppercase tracking-widest sticker-btn pt-4">
+                    Confirmar Registro
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const API_URL = 'http://localhost:3000/api/auth';
+        const VEHICLES_URL = 'http://localhost:3000/api/vehicles';
+        const ROUTES_URL = 'http://localhost:3000/api/routes';
+        const ADMIN_URL = 'http://localhost:3000/api/admin/operators';
+        const LOGS_URL = 'http://localhost:3000/api/logs';
+        // ==========================================
+        // ELEMENTOS DEL DOM
+        // ==========================================
+        // Elementos de la Vista de Autenticación
+        const authView = document.getElementById('auth-view');
+        const toggleBtn = document.getElementById('form-toggle');
+        const authHeadline = document.getElementById('auth-headline');
+        const submitBtn = document.getElementById('submit-btn');
+        const authForm = document.getElementById('auth-form');
+        const alertBox = document.getElementById('alert-box');
+        const description = document.getElementById('form-description');
+
+        // Elementos de la Vista del Menú de Administrador
+        const adminMenuView = document.getElementById('admin-menu-view');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Elementos de la Vista de Tabla y Módulos
+        const vistaTablaUnidades = document.getElementById('vista-tabla-unidades');
+        const btnNuevaUnidad = document.getElementById('btn-nueva-unidad');
+        const tablaUnidadesBody = document.getElementById('tabla-unidades-body');
+
+        // Elementos del PopUp Modal de Unidades
+        const modalUnidad = document.getElementById('modal-unidad');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const unidadForm = document.getElementById('unidad-form');
+        const modalTitle = document.getElementById('modal-title');
+        const saveUnidadBtn = document.getElementById('save-unidad-btn');
+        const deleteUnidadBtn = document.getElementById('delete-unidad-btn');
+
+        // Inputs del Modal
+        const inputUnidadId = document.getElementById('unidad-id');
+        const inputNumUnidad = document.getElementById('num-unidad');
+        const inputPlacasUnidad = document.getElementById('placas-unidad');
+        const inputModeloUnidad = document.getElementById('modelo-unidad');
+
+        // Elementos de la Vista de Rutas
+        const vistaTablaRutas = document.getElementById('vista-tabla-rutas');
+        const btnNuevaRuta = document.getElementById('btn-nueva-ruta');
+        const tablaRutasBody = document.getElementById('tabla-rutas-body');
+
+        // Elementos del Modal de Rutas
+        const modalRuta = document.getElementById('modal-ruta');
+        const closeModalRutaBtn = document.getElementById('close-modal-ruta-btn');
+        const rutaForm = document.getElementById('ruta-form');
+        const modalRutaTitle = document.getElementById('modal-ruta-title');
+        const saveRutaBtn = document.getElementById('save-ruta-btn');
+        const deleteRutaBtn = document.getElementById('delete-ruta-btn');
+
+        // Inputs del Modal de Rutas
+        const inputRutaId = document.getElementById('ruta-id');
+        const inputNombreRuta = document.getElementById('nombre-ruta');
+        const inputOrigenRuta = document.getElementById('origen-ruta');
+        const inputDestinoRuta = document.getElementById('destino-ruta');
+        const inputTarifaRuta = document.getElementById('tarifa-ruta');
+
+        // Elementos de la Vista de Operadores
+        const vistaTablaOperadores = document.getElementById('vista-tabla-operadores');
+        const tablaOperadoresBody = document.getElementById('tabla-operadores-body');
+
+        // Elementos del Modal de Operadores
+        const modalOperador = document.getElementById('modal-operador');
+        const closeModalOperadorBtn = document.getElementById('close-modal-operador-btn');
+        const operadorForm = document.getElementById('operador-form');
+        const deleteOperadorBtn = document.getElementById('delete-operador-btn');
+
+        // Inputs
+        const inputOperadorId = document.getElementById('operador-id');
+        const inputEmailOperador = document.getElementById('email-operador');
+
+        // Variables del portal de operadores
+        const operatorMenuView = document.getElementById('operator-menu-view');
+        const vistaTablaOp = document.getElementById('vista-tabla-op');
+        const tablaOpHead = document.getElementById('tabla-op-head');
+        const tablaOpBody = document.getElementById('tabla-op-body');
+        const tablaOpTitulo = document.getElementById('tabla-op-titulo');
+
+        let isLogin = true;
+
+        // ==========================================
+        // LOGICA DE AUTENTICACIÓN
+        // ==========================================
+
+        // Alternar entre las pestañas Internas de Login y Registro
+        toggleBtn.addEventListener('click', () => {
+            isLogin = !isLogin;
+            alertBox.classList.add('hidden');
+
+            if (isLogin) {
+                toggleBtn.innerText = 'No tengo cuenta';
+                authHeadline.innerText = '¡Súbete a mi moto!';
+                description.innerText = 'El barrio te necesita. Regístrate o inicia sesión para empezar a chambear.';
+                submitBtn.innerText = '¡Vámonos!';
+            } else {
+                toggleBtn.innerText = 'Ya tengo cuenta';
+                authHeadline.innerText = '¡Únete a la Banda!';
+                description.innerText = 'Regístrate para dar de alta tu perfil de operador en la base del barrio.';
+                submitBtn.innerText = '¡Registrar!';
+            }
+            reInjectSparkles();
+        });
+
+        // Procesamiento de Formularios (Login / Registro)
+        authForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            alertBox.classList.add('hidden');
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = 'ARRANCANDO...';
+            submitBtn.disabled = true;
+
+            const endpoint = isLogin ? `${API_URL}/login` : `${API_URL}/register`;
+            const bodyData = { email, password };
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(bodyData)
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.msg || 'Fallo en los motores del servidor.');
+                }
+
+                if (isLogin) {
+                    localStorage.setItem('token', data.token);
+                    const payload = JSON.parse(atob(data.token.split('.')[1]));
+
+                    if (payload.role === 'admin') {
+                        authView.classList.add('hidden');
+                        adminMenuView.classList.remove('hidden');
+                        authForm.reset();
+                    } else if (payload.role === 'operator') {
+                        // ¡NUEVO! Redirigir al menú de choferes
+                        authView.classList.add('hidden');
+                        document.getElementById('operator-menu-view').classList.remove('hidden');
+                        document.getElementById('OPERATOR_WELCOME').innerText = `Bienvenido: ${payload.email}`;
+                        authForm.reset();
+                    }
+                } else {
+                    showFeedback('Registro exitoso. ¡Ya puedes iniciar sesión, carnal!', 'success');
+                    authForm.reset();
+                    toggleBtn.click();
+                }
+
+            } catch (error) {
+                showFeedback(error.message, 'error');
+            } finally {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Acción del Botón de Cerrar Sesión
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            adminMenuView.classList.add('hidden');
+            authView.classList.remove('hidden');
+            vistaTablaUnidades.classList.add('hidden'); // Oculta también la tabla al salir
+        });
+
+        // ==========================================
+        // LOGICA DEL DASHBOARD / UNIDADES
+        // ==========================================
+
+        // Control de navegación del menú central
+        document.getElementById('btn-unidades').addEventListener('click', () => {
+            vistaTablaUnidades.classList.remove('hidden');
+            cargarUnidades();
+        });
+
+        // Microinteracciones para los otros botones (Rutas, Conductores, etc.)
+        const otrosBotones = ['btn-operadores', 'btn-entradas-salidas'];
+        otrosBotones.forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    alert(`Abriendo el módulo de ${btn.querySelector('span:not(.material-symbols-outlined)').innerText}...`);
+                });
+            }
+        });
+
+        btnNuevaUnidad.addEventListener('click', () => {
+            abrirModalUnidad('agregar');
+        });
+
+        // modal setup dinámico
+        function abrirModalUnidad(modo, datos = null) {
+            unidadForm.reset();
+            modalUnidad.classList.remove('hidden');
+
+            if (modo === 'agregar') {
+                modalTitle.innerText = "Agregar Unidad";
+                saveUnidadBtn.innerText = "Registrar Moto";
+                inputUnidadId.value = "";
+                deleteUnidadBtn.classList.add('hidden');
+            } else if (modo === 'editar' && datos) {
+                modalTitle.innerText = "Editar Unidad";
+                saveUnidadBtn.innerText = "Actualizar Cambios";
+                deleteUnidadBtn.classList.remove('hidden');
+
+                inputUnidadId.value = datos.id;
+                inputNumUnidad.value = datos.numero;
+                inputPlacasUnidad.value = datos.placas;
+                inputModeloUnidad.value = datos.modelo;
+            }
+        }
+        // Cerrar el Pop-up al dar clic en la X
+        closeModalBtn.addEventListener('click', () => {
+            modalUnidad.classList.add('hidden');
+        });
+
+        // Cerrar el Pop-up si dan clic en la zona oscura de afuera
+        modalUnidad.addEventListener('click', (e) => {
+            if (e.target === modalUnidad) {
+                modalUnidad.classList.add('hidden');
+            }
+        });
+
+        closeModalBtn.addEventListener('click', () => modalUnidad.classList.add('hidden'));
+
+        // 1. CARGAR UNIDADES DESDE MYSQL (GET)
+        async function cargarUnidades() {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch(VEHICLES_URL, {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!response.ok) throw new Error('Error al leer unidades de la base.');
+
+                const unidades = await response.json();
+                tablaUnidadesBody.innerHTML = '';
+
+                if (unidades.length === 0) {
+                    tablaUnidadesBody.innerHTML = `<tr><td colspan="4" class="p-4 text-center opacity-60 uppercase font-label-lg">No hay unidades registradas en la base, patrón.</td></tr>`;
+                    return;
+                }
+
+                unidades.forEach(moto => {
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-surface-container-low transition-colors";
+                    tr.innerHTML = `
+                <td class="p-3 font-bold text-primary font-headline-md">${moto.numeroUnidad}</td>
+                <td class="p-3 uppercase tracking-wider">${moto.placas}</td>
+                <td class="p-3 opacity-80">${moto.modelo}</td>
+                <td class="p-3 text-center">
+                    <button class="bg-secondary-container text-on-background font-label-sm text-label-sm uppercase py-1 px-3 sticker-btn" 
+                            onclick="editarUnidadHandler(${JSON.stringify(moto).replace(/"/g, '&quot;')})">
+                        Editar
+                    </button>
+                </td>
+            `;
+                    tablaUnidadesBody.appendChild(tr);
+                });
+            } catch (error) {
+                alert("Fallo en los motores del servidor al cargar las motos: " + error.message);
+            }
+        }
+
+        window.editarUnidadHandler = function (moto) {
+            abrirModalUnidad('editar', {
+                id: moto.id,
+                numero: moto.numeroUnidad,
+                placas: moto.placas,
+                modelo: moto.modelo
+            });
+        };
+
+        // 2. GUARDAR / ACTUALIZAR UNIDAD (POST / PUT)
+        unidadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+
+            const id = inputUnidadId.value;
+            const payload = {
+                numeroUnidad: inputNumUnidad.value,
+                placas: inputPlacasUnidad.value,
+                modelo: inputModeloUnidad.value
+            };
+
+            const url = id ? `${VEHICLES_URL}/${id}` : VEHICLES_URL;
+            const method = id ? 'PUT' : 'POST';
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.msg || 'Error en la operación.');
+
+                alert(id ? '¡Unidad actualizada correctamente, patrón!' : '¡Nueva moto registrada con éxito!');
+                modalUnidad.classList.add('hidden');
+                cargarUnidades();
+            } catch (error) {
+                alert("Error al guardar la moto: " + error.message);
+            }
+        });
+
+        // 3. ELIMINAR UNIDAD (DELETE)
+        deleteUnidadBtn.addEventListener('click', async () => {
+            const token = localStorage.getItem('token');
+            const id = inputUnidadId.value;
+            const numero = inputNumUnidad.value;
+
+            if (confirm(`¿De veras quieres dar de baja la unidad ${numero} de la base, patrón?`)) {
+                try {
+                    const response = await fetch(`${VEHICLES_URL}/${id}`, {
+                        method: 'DELETE',
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.msg || 'Error al eliminar.');
+
+                    alert(`Unidad ${numero} eliminada de la base correctamente.`);
+                    modalUnidad.classList.add('hidden');
+                    cargarUnidades();
+                } catch (error) {
+                    alert("Error al eliminar la unidad: " + error.message);
+                }
+            }
+        });
+
+        // ==========================================
+        // FUNCIONES AUXILIARES
+        // ==========================================
+        function showFeedback(message, type) {
+            alertBox.innerText = message;
+            alertBox.classList.remove('hidden', 'border-error', 'text-error', 'bg-error-container', 'border-green-600', 'text-green-600', 'bg-green-50');
+
+            if (type === 'error') {
+                alertBox.classList.add('border-error', 'text-error', 'bg-error-container');
+            } else {
+                alertBox.classList.add('border-green-600', 'text-green-600', 'bg-green-50');
+            }
+            alertBox.classList.remove('hidden');
+        }
+
+        function reInjectSparkles() {
+            const s1 = document.createElement('span');
+            s1.className = 'material-symbols-outlined decorative-sparkle -top-6 -right-6 text-secondary-container';
+            s1.innerText = 'auto_awesome';
+
+            const s2 = document.createElement('span');
+            s2.className = 'material-symbols-outlined decorative-sparkle -bottom-2 -left-8 text-primary';
+            s2.innerText = 'stars';
+
+            authHeadline.appendChild(s1);
+            authHeadline.appendChild(s2);
+        }
+
+        // Evento para el botón gigante del menú central
+        document.getElementById('btn-rutas').addEventListener('click', () => {
+            vistaTablaUnidades.classList.add('hidden'); // Ocultar otras tablas abiertas
+            vistaTablaRutas.classList.remove('hidden');
+            cargarRutas();
+        });
+
+        btnNuevaRuta.addEventListener('click', () => abrirModalRuta('agregar'));
+        closeModalRutaBtn.addEventListener('click', () => modalRuta.classList.add('hidden'));
+
+        // Configurar Modal Dinámico de Rutas
+        function abrirModalRuta(modo, datos = null) {
+            rutaForm.reset();
+            modalRuta.classList.remove('hidden');
+
+            if (modo === 'agregar') {
+                modalRutaTitle.innerText = "Agregar Nuevo Ramal";
+                saveRutaBtn.innerText = "Guardar Ramal";
+                inputRutaId.value = "";
+                inputTarifaRuta.value = "15.00";
+                deleteRutaBtn.classList.add('hidden');
+            } else if (modo === 'editar' && datos) {
+                modalRutaTitle.innerText = "Editar Ramal";
+                saveRutaBtn.innerText = "Actualizar Cambios";
+                deleteRutaBtn.classList.remove('hidden');
+
+                inputRutaId.value = datos.id;
+                inputNombreRuta.value = datos.nombre;
+                inputOrigenRuta.value = datos.origen;
+                inputDestinoRuta.value = datos.destino;
+                inputTarifaRuta.value = datos.tarifa;
+            }
+        }
+
+        // 1. CARGAR RUTAS DESDE MYSQL (GET)
+        async function cargarRutas() {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch(ROUTES_URL, {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!response.ok) throw new Error('Error al leer ramales del servidor.');
+
+                const rutas = await response.json();
+                tablaRutasBody.innerHTML = '';
+
+                if (rutas.length === 0) {
+                    tablaRutasBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center opacity-60 uppercase font-label-lg">No hay ramales registrados en la base, patrón.</td></tr>`;
+                    return;
+                }
+
+                rutas.forEach(r => {
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-surface-container-low transition-colors";
+                    tr.innerHTML = `
+                <td class="p-3 font-bold text-primary font-headline-md uppercase">${r.nombre}</td>
+                <td class="p-3 opacity-90">${r.origen}</td>
+                <td class="p-3 opacity-90">${r.destino}</td>
+                <td class="p-3 font-bold text-green-700">$${parseFloat(r.tarifa).toFixed(2)}</td>
+                <td class="p-3 text-center">
+                    <button class="bg-secondary-container text-on-background font-label-sm text-label-sm uppercase py-1 px-3 sticker-btn" 
+                            onclick="editarRutaHandler(${JSON.stringify(r).replace(/"/g, '&quot;')})">
+                        Editar
+                    </button>
+                </td>
+            `;
+                    tablaRutasBody.appendChild(tr);
+                });
+            } catch (error) {
+                alert("Error en los motores al cargar rutas: " + error.message);
+            }
+        }
+
+        window.editarRutaHandler = function (r) {
+            abrirModalRuta('editar', {
+                id: r.id,
+                nombre: r.nombre,
+                origen: r.origen,
+                destino: r.destino,
+                tarifa: r.tarifa
+            });
+        };
+
+        // 2. GUARDAR / ACTUALIZAR RUTA (POST / PUT)
+        rutaForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+            const id = inputRutaId.value;
+
+            const payload = {
+                nombre: inputNombreRuta.value,
+                origen: inputOrigenRuta.value,
+                destino: inputDestinoRuta.value,
+                tarifa: inputTarifaRuta.value
+            };
+
+            const url = id ? `${ROUTES_URL}/${id}` : ROUTES_URL;
+            const method = id ? 'PUT' : 'POST';
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.msg || 'Fallo en la operación de rutas.');
+
+                alert(id ? '¡Ramal actualizado con éxito, patrón!' : '¡Nuevo ramal registrado en la base!');
+                modalRuta.classList.add('hidden');
+                cargarRutas();
+            } catch (error) {
+                alert("Error al guardar el ramal: " + error.message);
+            }
+        });
+
+        // 3. ELIMINAR RUTA (DELETE)
+        deleteRutaBtn.addEventListener('click', async () => {
+            const token = localStorage.getItem('token');
+            const id = inputRutaId.value;
+            const nombre = inputNombreRuta.value;
+
+            if (confirm(`¿De veras quieres borrar el ramal "${nombre}" de la bitácora, patrón?`)) {
+                try {
+                    const response = await fetch(`${ROUTES_URL}/${id}`, {
+                        method: 'DELETE',
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.msg || 'Error al eliminar ramal.');
+
+                    alert(`El ramal "${nombre}" fue removido de la base.`);
+                    modalRuta.classList.add('hidden');
+                    cargarRutas();
+                } catch (error) {
+                    alert("Error al eliminar ramal: " + error.message);
+                }
+            }
+        });
+
+        // Asegurar el cierre del modal al hacer clic afuera
+        modalRuta.addEventListener('click', (e) => {
+            if (e.target === modalRuta) modalRuta.classList.add('hidden');
+        });
+
+        // Evento click del menú central
+        document.getElementById('btn-operadores').addEventListener('click', () => {
+            vistaTablaUnidades.classList.add('hidden');
+            vistaTablaRutas.classList.add('hidden');
+            vistaTablaOperadores.classList.remove('hidden');
+            cargarOperadores();
+        });
+
+        closeModalOperadorBtn.addEventListener('click', () => modalOperador.classList.add('hidden'));
+
+        // 1. CARGAR OPERADORES (GET)
+        async function cargarOperadores() {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch(ADMIN_URL, {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!response.ok) throw new Error('Error al cargar la banda de choferes.');
+
+                const operadores = await response.json();
+                tablaOperadoresBody.innerHTML = '';
+
+                if (operadores.length === 0) {
+                    tablaOperadoresBody.innerHTML = `<tr><td colspan="4" class="p-4 text-center opacity-60 uppercase font-label-lg">No hay operadores registrados todavía, patrón.</td></tr>`;
+                    return;
+                }
+
+                operadores.forEach(op => {
+                    const fecha = new Date(op.createdAt).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' });
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-surface-container-low transition-colors";
+                    tr.innerHTML = `
+                <td class="p-3 font-bold text-primary font-headline-md">#${op.id}</td>
+                <td class="p-3 font-medium">${op.email}</td>
+                <td class="p-3 opacity-70 uppercase text-xs">${fecha}</td>
+                <td class="p-3 text-center">
+                    <button class="bg-secondary-container text-on-background font-label-sm text-label-sm uppercase py-1 px-3 sticker-btn" 
+                            onclick="editarOperadorHandler(${JSON.stringify(op).replace(/"/g, '&quot;')})">
+                        Modificar
+                    </button>
+                </td>
+            `;
+                    tablaOperadoresBody.appendChild(tr);
+                });
+            } catch (error) {
+                alert("Error al cargar operadores: " + error.message);
+            }
+        }
+
+        window.editarOperadorHandler = function (op) {
+            modalOperador.classList.remove('hidden');
+            inputOperadorId.value = op.id;
+            inputEmailOperador.value = op.email;
+        };
+
+        // 2. ACTUALIZAR OPERADOR (PUT)
+        operadorForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+            const id = inputOperadorId.value;
+
+            try {
+                const response = await fetch(`${ADMIN_URL}/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ email: inputEmailOperador.value })
+                });
+
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.msg || 'Error al actualizar.');
+
+                alert('¡Datos del chofer actualizados correctamente!');
+                modalOperador.classList.add('hidden');
+                cargarOperadores();
+            } catch (error) {
+                alert("Error: " + error.message);
+            }
+        });
+
+        // 3. DAR DE BAJA / ELIMINAR OPERADOR (DELETE)
+        deleteOperadorBtn.addEventListener('click', async () => {
+            const token = localStorage.getItem('token');
+            const id = inputOperadorId.value;
+            const email = inputEmailOperador.value;
+
+            if (confirm(`¿De veras quieres dar de baja a ${email} de la base, patrón?`)) {
+                try {
+                    const response = await fetch(`${ADMIN_URL}/${id}`, {
+                        method: 'DELETE',
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.msg || 'Error al eliminar.');
+
+                    alert('Operador removido del sistema con éxito.');
+                    modalOperador.classList.add('hidden');
+                    cargarOperadores();
+                } catch (error) {
+                    alert("Error al eliminar: " + error.message);
+                }
+            }
+        });
+
+        // Cierre al dar clic afuera
+        modalOperador.addEventListener('click', (e) => {
+            if (e.target === modalOperador) modalOperador.classList.add('hidden');
+        });
+
+        // Elementos del DOM
+        const vistaTablaBitacora = document.getElementById('vista-tabla-bitacora');
+        const tablaBitacoraBody = document.getElementById('tabla-bitacora-body');
+        const modalChequeo = document.getElementById('modal-chequeo');
+        const chequeoForm = document.getElementById('chequeo-form');
+
+        const selectOperador = document.getElementById('select-operador');
+        const selectMoto = document.getElementById('select-moto');
+
+        // Evento click menú principal
+        document.getElementById('btn-entradas-salidas').addEventListener('click', () => {
+            // Ocultamos las tres tablas previas de forma segura verificando que existan
+            if (document.getElementById('vista-tabla-unidades')) document.getElementById('vista-tabla-unidades').classList.add('hidden');
+            if (document.getElementById('vista-tabla-rutas')) document.getElementById('vista-tabla-rutas').classList.add('hidden');
+            if (document.getElementById('vista-tabla-operadores')) document.getElementById('vista-tabla-operadores').classList.add('hidden');
+
+            // Mostramos la bitácora
+            const vistaBitacora = document.getElementById('vista-tabla-bitacora');
+            if (vistaBitacora) {
+                vistaBitacora.classList.remove('hidden');
+                cargarBitacora();
+            }
+        });
+
+        document.getElementById('btn-nuevo-chequeo').addEventListener('click', async () => {
+            modalChequeo.classList.remove('hidden');
+            chequeoForm.reset();
+
+            // Alimentar los selectores dinámicamente con los datos de las otras tablas
+            const token = localStorage.getItem('token');
+
+            // Cargar Choferes
+            const resOp = await fetch('http://localhost:3000/api/admin/operators', { headers: { 'Authorization': `Bearer ${token}` } });
+            const ops = await resOp.json();
+            selectOperador.innerHTML = ops.map(o => `<option value="${o.id}">${o.email}</option>`).join('');
+
+            // Cargar Motos
+            const resMotos = await fetch('http://localhost:3000/api/vehicles', { headers: { 'Authorization': `Bearer ${token}` } });
+            const motos = await resMotos.json();
+            selectMoto.innerHTML = motos.map(m => `<option value="${m.id}">Moto Eco. ${m.numeroUnidad}</option>`).join('');
+        });
+
+        document.getElementById('close-modal-chequeo-btn').addEventListener('click', () => modalChequeo.classList.add('hidden'));
+
+        // 1. CARGAR HISTORIAL DE BITÁCORA (GET)
+        async function cargarBitacora() {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch(LOGS_URL, {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!response.ok) throw new Error('Error al leer la bitácora.');
+                const logs = await response.json();
+                tablaBitacoraBody.innerHTML = '';
+
+                if (logs.length === 0) {
+                    tablaBitacoraBody.innerHTML = `<tr><td colspan="4" class="p-4 text-center opacity-60 uppercase font-label-lg">Sin movimientos registrados hoy, patrón.</td></tr>`;
+                    return;
+                }
+
+                logs.forEach(l => {
+                    const hora = new Date(l.fechaHora).toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                    const esSalida = l.tipo === 'SALIDA';
+
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-surface-container-low transition-colors";
+                    tr.innerHTML = `
+                <td class="p-3 font-medium opacity-70">${hora}</td>
+                <td class="p-3 font-bold ${esSalida ? 'text-primary' : 'text-green-700'} uppercase">${l.tipo}</td>
+                <td class="p-3">${l.operador ? l.operador.email : 'Sin asignar'}</td>
+                <td class="p-3 font-bold">Eco. ${l.unidad ? l.unidad.numeroUnidad : '??'}</td>
+            `;
+                    tablaBitacoraBody.appendChild(tr);
+                });
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        // 2. ENVIAR NUEVO REGISTRO (POST)
+        chequeoForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+
+            // Convertimos a entero los IDs para asegurar compatibilidad con MySQL
+            const payload = {
+                userId: parseInt(selectOperador.value),
+                motoTaxiId: parseInt(selectMoto.value),
+                tipo: document.getElementById('select-tipo').value
+            };
+
+            try {
+                const response = await fetch(LOGS_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) throw new Error('No se pudo guardar el chequeo.');
+
+                // TODO ESTO SOLO PASA SI EL SERVIDOR RESPONDIÓ EXITOSO (201)
+                alert('¡Movimiento registrado en la bitácora central!');
+                modalChequeo.classList.add('hidden');
+
+                // Desciframos el rol actual para saber qué tabla actualizar en vivo
+                const payloadActual = JSON.parse(atob(token.split('.')[1]));
+
+                if (payloadActual.role === 'admin') {
+                    cargarBitacora(); // Actualiza la vista del patrón
+                } else {
+                    document.getElementById('btn-op-checador').click(); // Refresca la vista del chofer
+                }
+
+            } catch (error) {
+                alert("Error en el checador: " + error.message);
+            }
+        });
+        modalChequeo.addEventListener('click', (e) => {
+            if (e.target === modalChequeo) modalChequeo.classList.add('hidden');
+        });
+
+        // Botón Salir del Operador
+        document.getElementById('logout-op-btn').addEventListener('click', () => {
+            localStorage.removeItem('token');
+            operatorMenuView.classList.add('hidden');
+            vistaTablaOp.classList.add('hidden');
+            authView.classList.remove('hidden');
+        });
+
+        // A) VER MOTOS (READ ONLY)
+        document.getElementById('btn-op-unidades').addEventListener('click', async () => {
+            vistaTablaOp.classList.remove('hidden');
+            tablaOpTitulo.innerText = "Unidades Activas en la Base";
+            tablaOpHead.innerHTML = `<tr class="border-b-4 border-on-background bg-surface-container-highest font-label-lg text-label-lg uppercase"><th class="p-3">Económico</th><th class="p-3">Placas</th><th class="p-3">Modelo / Marca</th></tr>`;
+
+            const token = localStorage.getItem('token');
+            const res = await fetch(VEHICLES_URL, { headers: { 'Authorization': `Bearer ${token}` } });
+            const motos = await res.json();
+
+            tablaOpBody.innerHTML = motos.map(m => `
+        <tr class="opacity-90"><td class="p-3 font-bold text-primary font-headline-md">${m.numeroUnidad}</td><td class="p-3 uppercase">${m.placas}</td><td class="p-3">${m.modelo}</td></tr>
+    `).join('');
+        });
+
+        // B) VER RAMALES (READ ONLY)
+        document.getElementById('btn-op-rutas').addEventListener('click', async () => {
+            vistaTablaOp.classList.remove('hidden');
+            tablaOpTitulo.innerText = "Ramales y Tarifas Autorizadas";
+            tablaOpHead.innerHTML = `<tr class="border-b-4 border-on-background bg-surface-container-highest font-label-lg text-label-lg uppercase"><th class="p-3">Ramal</th><th class="p-3">Origen</th><th class="p-3">Destino</th><th class="p-3">Tarifa</th></tr>`;
+
+            const token = localStorage.getItem('token');
+            const res = await fetch(ROUTES_URL, { headers: { 'Authorization': `Bearer ${token}` } });
+            const rutas = await res.json();
+
+            tablaOpBody.innerHTML = rutas.map(r => `
+        <tr class="opacity-90"><td class="p-3 font-bold text-primary font-headline-md uppercase">${r.nombre}</td><td class="p-3">${r.origen}</td><td class="p-3">${r.destino}</td><td class="p-3 font-bold text-green-700">$${parseFloat(r.tarifa).toFixed(2)}</td></tr>
+    `).join('');
+        });
+
+        // C) ACCIÓN DE MI CHECADOR (Abre el Pop-up directo para que registre su marca)
+        document.getElementById('btn-op-checador').addEventListener('click', async () => {
+            // 1. Desplegar el Pop-up de registro rápido
+            document.getElementById('modal-chequeo').classList.remove('hidden');
+            document.getElementById('chequeo-form').reset();
+
+            const token = localStorage.getItem('token');
+            const payload = JSON.parse(atob(token.split('.')[1]));
+
+            // Fijar su correo en el selector
+            selectOperador.innerHTML = `<option value="${payload.id}">${payload.email || payload.correo || 'Chofer'}</option>`;
+
+            // Cargar las motos para el selector del Pop-up
+            const resMotos = await fetch(VEHICLES_URL, { headers: { 'Authorization': `Bearer ${token}` } });
+            const motos = await resMotos.json();
+            selectMoto.innerHTML = motos.map(m => `<option value="${m.id}">Moto Eco. ${m.numeroUnidad}</option>`).join('');
+
+            // 2. ¡NUEVO! Cargar la tabla de historial abajo en su vista Read-Only
+            vistaTablaOp.classList.remove('hidden');
+            tablaOpTitulo.innerText = "Historial de Entradas y Salidas en Vivo";
+
+            // Definimos el encabezado neobrutalista para la bitácora
+            tablaOpHead.innerHTML = `
+        <tr class="border-b-4 border-on-background bg-surface-container-highest font-label-lg text-label-lg uppercase">
+            <th class="p-3">Hora</th>
+            <th class="p-3">Movimiento</th>
+            <th class="p-3">Chofer</th>
+            <th class="p-3">Unidad</th>
+        </tr>
+    `;
+
+            // Hacemos la petición a la bitácora
+            const resLogs = await fetch(LOGS_URL, { headers: { 'Authorization': `Bearer ${token}` } });
+            const logs = await resLogs.json();
+
+            if (logs.length === 0) {
+                tablaOpBody.innerHTML = `<tr><td colspan="4" class="p-4 text-center opacity-60 uppercase">Sin movimientos registrados hoy, patrón.</td></tr>`;
+                return;
+            }
+
+            // Inyectamos las filas correspondientes
+            tablaOpBody.innerHTML = logs.map(l => {
+                const hora = new Date(l.fechaHora).toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                const esSalida = l.tipo === 'SALIDA';
+                return `
+            <tr class="opacity-90 hover:bg-surface-container-low transition-colors">
+                <td class="p-3 opacity-70">${hora}</td>
+                <td class="p-3 font-bold ${esSalida ? 'text-primary' : 'text-green-700'} uppercase">${l.tipo}</td>
+                <td class="p-3">${l.operador ? (l.operador.email || l.operador.correo) : 'Sin asignar'}</td>
+                <td class="p-3 font-bold">Eco. ${l.unidad ? l.unidad.numeroUnidad : '??'}</td>
+            </tr>
+        `;
+            }).join('');
+        });
+    </script>
+</body>
+
+</html>
