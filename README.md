@@ -27,7 +27,7 @@ cd tu-repo-mototaxis
 
 # Levantar los servicios contenerizados en segundo plano
 docker compose up -d
-
+````
 3. Acceso a la Aplicación
 Una vez que Docker indique que los contenedores están en estado running, usted puede interactuar con el sistema de dos formas:
 
