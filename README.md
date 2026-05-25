@@ -31,7 +31,7 @@ docker compose up -d
 3. Acceso a la Aplicación
 Una vez que Docker indique que los contenedores están en estado running, usted puede interactuar con el sistema de dos formas:
 
-Vía GitHub Pages (Recomendado): Ingrese al enlace de producción generado por GitHub: https://tu-usuario.github.io/tu-repo-mototaxis/ (la interfaz se comunicará con los servicios de su Docker local a través de localhost:3000).
+Vía GitHub Pages (Recomendado): Ingrese al enlace de producción generado por GitHub: (https://github.com/IsraelHernandezFES/BaseDeMotoTaxis)(la interfaz se comunicará con los servicios de su Docker local a través de localhost:3000).
 
 Vía Local: Abra directamente en su navegador el archivo index.html ubicado dentro de la carpeta frontend/ (o docs/).
 
